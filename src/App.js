@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Quiz from "./components/Quiz"
+import { BrowserRouter as Router,Route,Routes} from 'react-router-dom'
+import PlayQuiz from './components/PlayQuiz';
+import Result from './components/Result';
+import {app} from './firebase-config.js'
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    
+    <Routes>
+      <Route exact path='/' element={<Quiz/>}/>
+      <Route exact path='/play' element={<PlayQuiz/>}/>
+      <Route exact path='/results' element={<Result/>}/>
+    </Routes>
+   
     </div>
   );
 }
